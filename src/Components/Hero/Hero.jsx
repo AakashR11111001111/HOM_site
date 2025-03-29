@@ -1,8 +1,14 @@
 import { useContext } from 'react';
 import styles from './Hero.module.css';
 import { darkModeCtx } from '../../App';
+import { useNavigate } from 'react-router-dom';
 const Hero = () => {
+    const navigate = useNavigate();
     const { darkMode } = useContext(darkModeCtx);
+    const getYourNowClick = () => {
+        navigate("/buy-now")
+    }
+
 
 
     return (
@@ -16,7 +22,7 @@ const Hero = () => {
                 <div className={styles.hl}>
                     <h1>Speed Beyond Limits</h1>
                     <p>Ultra-fast processor, hyper-responsive display, and limitless power. Experience the future</p>
-                    <button style={{backgroundColor: darkMode ? "var(--white)" : "var(--black)", color: darkMode ? "var(--black)" : "var(--white)" }} className={styles.gynBtn}>Get Yours Now</button>
+                    <button onClick={getYourNowClick} style={{backgroundColor: darkMode ? "var(--white)" : "var(--black)", color: darkMode ? "var(--black)" : "var(--white)" }} className={styles.gynBtn}>Get Yours Now</button>
                 </div>
             </div>
         </div>

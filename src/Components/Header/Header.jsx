@@ -21,15 +21,15 @@ const Header = ({ headerRef }) => {
 
     useEffect(() => {
         if (menuOpen) {
-           
-                gsap.from(
-                    dropDownRef.current.querySelectorAll(".ddMenu"),{ 
-                        opacity: 0,
-                        y: -10,
-                        stagger: 0.2,
-                    },
-                
-                );
+            document.body.style.overflow = "hidden";
+            gsap.from(
+                dropDownRef.current.querySelectorAll(".ddMenu"),{ 
+                    opacity: 0,
+                    y: -10,
+                    stagger: 0.2,
+                },
+            
+            );
     
         }
     }, [menuOpen]);

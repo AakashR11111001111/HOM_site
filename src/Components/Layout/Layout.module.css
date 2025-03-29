@@ -27,3 +27,8 @@
     white-space: nowrap;
 }
 
+@media screen and (max-width: 650px) {
+    .title{
+        font-size: 3vw;
+    }
+}

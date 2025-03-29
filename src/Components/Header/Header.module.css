@@ -121,7 +121,9 @@
 
 .nav2{
     position: relative;
-    /* display: none; */
+    display: none;
+    height: 80px;
+    width: 100%;
 }
 
 

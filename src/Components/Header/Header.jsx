@@ -18,6 +18,8 @@ const Header = ({ headerRef }) => {
     };
 
     return (
+        <>
+        
         <nav style={{ background: darkMode ? "var(--black)" : "var(--white)" }} className={styles.nav}>
             <ul ref={headerRef} className={styles.desktopMenu}>
                 <li><NavLink className={({ isActive }) => isActive ? styles.isActive : ""} style={{ color: darkMode ? "var(--white)" : "var(--black)" }} to={"/"}>Home</NavLink></li>
@@ -26,26 +28,27 @@ const Header = ({ headerRef }) => {
                 <li><img style={{ padding: "5px", cursor: "pointer" }} onClick={toggleDarkMode} src={darkMode ? "/lightMode.png" : "/darkMode.png"} alt="Dark Mode Toggle"/></li>
             </ul>
 
-            <nav className={styles.nav2}>
-                <div onClick={onHamClick} className={`${styles.hamburger} ${isActive ? styles.isActive : ""}`} style={{ background: darkMode ? "var(--black)" : "var(--white)" }}>
-                    <span style={{ background: darkMode ? "var(--white)" : "var(--black)" }} className={styles.hamburgerLine}></span>
-                    <span style={{ background: darkMode ? "var(--white)" : "var(--black)" }} className={styles.hamburgerLine}></span>
-                    <span style={{ background: darkMode ? "var(--white)" : "var(--black)" }} className={styles.hamburgerLine}></span>
-                </div>
-
-                {
-                    menuOpen 
-                    &&
-                    <div className={`${styles.dropdown} ${menuOpen ? styles.dropdownOpen : ""}`} style={{ background: darkMode ? "var(--black)" : "var(--white)" }}>
-                        <ul>
-                            <li><NavLink onClick={onHamClick} style={{ color: darkMode ? "var(--white)" : "var(--black)" }} to={"/"}>Home</NavLink></li>
-                            <li><NavLink onClick={onHamClick} style={{ color: darkMode ? "var(--white)" : "var(--black)" }} to={"/about"}>About</NavLink></li>
-                            <li><NavLink onClick={onHamClick} style={{ color: darkMode ? "var(--white)" : "var(--black)" }} to={"/buy-now"}>Buy Now</NavLink></li>
-                        </ul>
-                    </div>
-                }
-            </nav>
         </nav>
+        <nav style={{ background: darkMode ? "var(--black)" : "var(--white)" }} className={styles.nav2}>
+            <div onClick={onHamClick} className={`${styles.hamburger} ${isActive ? styles.isActive : ""}`} style={{ background: darkMode ? "var(--black)" : "var(--white)" }}>
+                <span style={{ background: darkMode ? "var(--white)" : "var(--black)" }} className={styles.hamburgerLine}></span>
+                <span style={{ background: darkMode ? "var(--white)" : "var(--black)" }} className={styles.hamburgerLine}></span>
+                <span style={{ background: darkMode ? "var(--white)" : "var(--black)" }} className={styles.hamburgerLine}></span>
+            </div>
+
+            {
+                menuOpen 
+                &&
+                <div className={`${styles.dropdown} ${menuOpen ? styles.dropdownOpen : ""}`} style={{ background: darkMode ? "var(--black)" : "var(--white)" }}>
+                    <ul>
+                        <li><NavLink onClick={onHamClick} style={{ color: darkMode ? "var(--white)" : "var(--black)" }} to={"/"}>Home</NavLink></li>
+                        <li><NavLink onClick={onHamClick} style={{ color: darkMode ? "var(--white)" : "var(--black)" }} to={"/about"}>About</NavLink></li>
+                        <li><NavLink onClick={onHamClick} style={{ color: darkMode ? "var(--white)" : "var(--black)" }} to={"/buy-now"}>Buy Now</NavLink></li>
+                    </ul>
+                </div>  
+            }
+        </nav>
+        </>
     );
 };
 

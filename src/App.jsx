@@ -4,6 +4,7 @@ import Layout from './Components/Layout/Layout'
 import Hero from './Components/Hero/Hero'
 import { createContext, useState } from 'react'
 import Purchase from './Components/Purchase/Purchase'
+import About from './Components/About/About'
 
 export const darkModeCtx = createContext();
 
@@ -18,6 +19,9 @@ function App() {
     },{
       path: "/buy-now",
       element: <Purchase />
+    },{
+      path: "/about",
+      element: <About />
     }]
   }])
 

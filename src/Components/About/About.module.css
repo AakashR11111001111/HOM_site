@@ -1,0 +1,8 @@
+.main{
+    height: calc(100vh - 80px);
+    width: 100%;
+}
+
+.main h1{
+    text-align: center;
+}

@@ -10,8 +10,9 @@ const Layout = () => {
     const headerRef = useRef(null);
 
     useLayoutEffect(() => {
-        const ctx = gsap.context(() => {
+        document.body.style.overflow = "hidden"; // Disable Scroll
 
+        const ctx = gsap.context(() => {
             const titles = loadingRef.current.querySelectorAll(`.${styles.title} h1`);
             const tl = gsap.timeline();
 
@@ -29,10 +30,13 @@ const Layout = () => {
                 });
             });
 
-            tl.to(loadingRef.current,{
+            tl.to(loadingRef.current, {
                 x: "-100%",
                 duration: 2,
-            })
+                onComplete: () => {
+                    document.body.style.overflow = "auto"; // Enable Scroll after animation
+                }
+            });
 
             tl.from(headerRef.current.querySelectorAll("li"), {
                 y: -50,
@@ -40,9 +44,13 @@ const Layout = () => {
                 duration: 1,
                 stagger: 0.5
             });
+
         }, comp);
 
-        return () => ctx.revert();
+        return () => {
+            document.body.style.overflow = "auto"; // Ensure scroll is re-enabled if unmounted
+            ctx.revert();
+        };
     }, []);
 
     return (
